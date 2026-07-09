@@ -4,8 +4,8 @@ import { useState } from "react";
 
 const links = [
   { href: "#home", label: "Home" },
-  { href: "#features", label: "Features" },
-  { href: "#projects", label: "Projekte" },
+  { href: "#downloads", label: "Downloads" },
+  { href: "#install", label: "Installation" },
   { href: "#contact", label: "Kontakt" },
 ];
 
@@ -36,10 +36,10 @@ export default function Navbar() {
         </ul>
 
         <a
-          href="#contact"
+          href="#downloads"
           className="hidden rounded-full bg-violet-600 px-5 py-2 text-sm font-medium text-white transition hover:bg-violet-500 md:inline-flex"
         >
-          Loslegen
+          Download
         </a>
 
         <button

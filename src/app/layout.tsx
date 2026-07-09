@@ -13,12 +13,13 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "VibeCoding — Moderne Webentwicklung",
+  title: "VibeCoding — Game Launcher & Valorant Account Manager",
   description:
-    "VibeCoding baut schnelle, elegante Websites und Apps. Von der Idee bis zum Deployment auf Vercel.",
+    "Lade den Universal Game Launcher und Valorant Account Manager für Windows herunter. Native Desktop-Apps gebaut mit Tauri & Rust.",
   openGraph: {
-    title: "VibeCoding — Moderne Webentwicklung",
-    description: "Schnelle, elegante Websites und Apps — gebaut mit Next.js und deployed auf Vercel.",
+    title: "VibeCoding — Game Launcher & Valorant Account Manager",
+    description:
+      "Universal Game Launcher und Valorant Account Manager — kostenlos für Windows herunterladen.",
     type: "website",
   },
 };
