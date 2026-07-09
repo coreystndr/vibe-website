@@ -7,7 +7,7 @@ export default function Footer() {
         </p>
         <div className="flex gap-6">
           <a
-            href="https://github.com"
+            href="https://github.com/coreystndr/vibe-website"
             target="_blank"
             rel="noopener noreferrer"
             className="text-sm text-zinc-400 transition hover:text-white"
@@ -15,12 +15,12 @@ export default function Footer() {
             GitHub
           </a>
           <a
-            href="https://vercel.com"
+            href="https://vibe-website-rose.vercel.app"
             target="_blank"
             rel="noopener noreferrer"
             className="text-sm text-zinc-400 transition hover:text-white"
           >
-            Vercel
+            Live Demo
           </a>
         </div>
       </div>
