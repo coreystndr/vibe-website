@@ -29,10 +29,10 @@ export default function AppDownloadCard({
 }: AppDownloadCardProps) {
   return (
     <article id={id} className="settings-card">
-      <div className="mb-3.5 flex items-start justify-between gap-3">
-        <div className="flex items-center gap-2.5">
+      <div className="mb-6 flex items-start justify-between gap-6">
+        <div className="flex items-start gap-3">
           <span
-            className="h-2 w-2 shrink-0 rounded-full"
+            className="mt-1.5 h-2.5 w-2.5 shrink-0 rounded-full"
             style={{ background: dotColor }}
           />
           <div>
@@ -45,28 +45,29 @@ export default function AppDownloadCard({
         </span>
       </div>
 
-      <p className="mb-3.5 text-[13px] leading-relaxed text-[var(--text-secondary)]">
+      <p className="mb-6 text-[14px] leading-relaxed text-[var(--text-secondary)]">
         {description}
       </p>
 
-      <div className="mb-4">
+      <ul className="feature-list mb-8">
         {features.map((feature) => (
-          <div key={feature.text} className="feature-row">
-            <span className="feature-row__dot" />
-            {feature.text}
-          </div>
+          <li key={feature.text}>{feature.text}</li>
         ))}
-      </div>
+      </ul>
 
-      <div className="flex flex-col gap-2.5 border-t border-[var(--border)] pt-3.5 sm:flex-row sm:items-center sm:justify-between">
-        <a href={downloadUrl} download={fileName} className="btn btn-primary h-[38px] justify-center px-4">
+      <div className="flex flex-col gap-4 border-t border-[var(--border)] pt-6 sm:flex-row sm:items-center sm:justify-between">
+        <a
+          href={downloadUrl}
+          download={fileName}
+          className="btn btn-primary h-10 justify-center px-5"
+        >
           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
             <path d="M12 3v12m0 0l-4-4m4 4l4-4" strokeLinecap="round" strokeLinejoin="round" />
             <path d="M4 17v2a2 2 0 002 2h12a2 2 0 002-2v-2" strokeLinecap="round" />
           </svg>
           Installieren
         </a>
-        <span className="text-[11px] text-[var(--text-tertiary)]">
+        <span className="text-[12px] text-[var(--text-tertiary)]">
           {fileName} · {fileSize}
         </span>
       </div>

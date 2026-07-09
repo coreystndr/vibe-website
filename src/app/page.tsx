@@ -8,7 +8,7 @@ const installSteps = [
     step: "01",
     title: "Installer herunterladen",
     description:
-      "Klicke auf „Installieren“ und speichere die .exe-Datei.",
+      "Klicke auf „Installieren“ und speichere die .exe-Datei auf deinem PC.",
   },
   {
     step: "02",
@@ -20,7 +20,7 @@ const installSteps = [
     step: "03",
     title: "App starten",
     description:
-      "Nach der Installation findest du die App im Startmenü.",
+      "Nach der Installation findest du die App im Windows-Startmenü.",
   },
 ];
 
@@ -29,8 +29,8 @@ export default function Home() {
     <div className="shell">
       <Sidebar />
 
-      <div className="main md:ml-0">
-        <header className="flex h-14 shrink-0 items-center gap-3.5 border-b border-[var(--border)] bg-[var(--bg-elevated)] px-5 max-md:pl-16">
+      <div className="main">
+        <header className="flex h-14 shrink-0 items-center border-b border-[var(--border)] bg-[var(--bg-elevated)] px-8 max-md:pl-16">
           <div className="flex-1" />
           <a href="#downloads" className="btn btn-primary">
             <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -42,43 +42,48 @@ export default function Home() {
         </header>
 
         <div className="content">
-          <section id="downloads">
-            <div className="view-header">
-              <div>
-                <h1 className="view-header__title">Downloads</h1>
-                <p className="view-header__sub">
-                  {apps.length} Desktop-Apps für Windows
-                </p>
-              </div>
-              <div className="view-stats">
-                <span className="stat-pill">
-                  <strong>{apps.length}</strong> verfügbar
-                </span>
-                <span className="stat-pill">
-                  <strong>v0.1.0</strong> aktuell
-                </span>
-              </div>
+          <div className="content-inner">
+            <div className="page-intro">
+              <h1 className="page-intro__title">Desktop Apps</h1>
+              <p className="page-intro__sub">
+                Universal Game Launcher und Valorant Account Manager —
+                native Windows-Apps zum direkten Download.
+              </p>
             </div>
 
-            <div className="grid gap-4 lg:grid-cols-2">
-              {apps.map((app) => (
-                <AppDownloadCard key={app.id} {...app} />
-              ))}
-            </div>
-          </section>
-
-          <section id="install" className="mt-8">
-            <div className="view-header">
-              <div>
-                <h2 className="view-header__title">Installation</h2>
-                <p className="view-header__sub">
-                  Setup in drei Schritten
-                </p>
+            <section id="downloads" className="section">
+              <div className="view-header">
+                <div>
+                  <h2 className="view-header__title">Downloads</h2>
+                  <p className="view-header__sub">
+                    Wähle die App, die du installieren möchtest.
+                  </p>
+                </div>
+                <div className="view-stats">
+                  <span className="stat-pill">
+                    <strong>{apps.length}</strong> verfügbar
+                  </span>
+                </div>
               </div>
-            </div>
 
-            <div className="settings-card">
-              <div className="grid gap-2 md:grid-cols-3">
+              <div className="app-stack">
+                {apps.map((app) => (
+                  <AppDownloadCard key={app.id} {...app} />
+                ))}
+              </div>
+            </section>
+
+            <section id="install" className="section">
+              <div className="view-header">
+                <div>
+                  <h2 className="view-header__title">Installation</h2>
+                  <p className="view-header__sub">
+                    So richtest du eine App auf deinem PC ein.
+                  </p>
+                </div>
+              </div>
+
+              <div className="install-steps">
                 {installSteps.map((item) => (
                   <div key={item.step} className="install-step">
                     <div className="install-step__num">{item.step}</div>
@@ -88,33 +93,33 @@ export default function Home() {
                 ))}
               </div>
 
-              <div className="notice-box mt-3">
+              <div className="notice-box">
                 <strong>Hinweis:</strong> Der Valorant Account Manager speichert
                 Passwörter im Windows Credential Manager. Nur für eigene Accounts —
                 Riot Games Nutzungsbedingungen beachten.
               </div>
-            </div>
-          </section>
+            </section>
 
-          <section id="contact" className="mt-8 pb-4">
-            <div className="view-header">
-              <div>
-                <h2 className="view-header__title">Kontakt</h2>
-                <p className="view-header__sub">
-                  Fragen, Bugs oder Feature-Wünsche
-                </p>
+            <section id="contact" className="section">
+              <div className="view-header">
+                <div>
+                  <h2 className="view-header__title">Kontakt</h2>
+                  <p className="view-header__sub">
+                    Fragen, Bugs oder Feature-Wünsche.
+                  </p>
+                </div>
               </div>
-            </div>
 
-            <div className="settings-card">
-              <p className="mb-3.5 text-[13px] text-[var(--text-secondary)]">
-                Probleme bei der Installation oder Feedback zur App? Schreib uns.
-              </p>
-              <a href="mailto:hello@vibecoding.dev" className="btn">
-                hello@vibecoding.dev
-              </a>
-            </div>
-          </section>
+              <div className="settings-card">
+                <p className="mb-6 text-[14px] leading-relaxed text-[var(--text-secondary)]">
+                  Probleme bei der Installation oder Feedback zur App? Schreib uns.
+                </p>
+                <a href="mailto:hello@vibecoding.dev" className="btn">
+                  hello@vibecoding.dev
+                </a>
+              </div>
+            </section>
+          </div>
         </div>
 
         <Footer />

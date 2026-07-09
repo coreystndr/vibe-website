@@ -102,7 +102,7 @@ export default function Sidebar() {
           <a
             key={link.href}
             href={link.href}
-            className="relative mx-2.5 mb-px flex w-[calc(100%-20px)] items-center gap-2 rounded-[var(--radius)] px-2.5 py-2 text-[13px] text-[var(--text-secondary)] transition hover:bg-[var(--surface)] hover:text-[var(--text)]"
+            className="relative mx-2.5 mb-1 flex w-[calc(100%-20px)] items-center gap-2.5 rounded-[var(--radius)] px-3 py-2.5 text-[13px] text-[var(--text-secondary)] transition hover:bg-[var(--surface)] hover:text-[var(--text)]"
             onClick={() => setOpen(false)}
           >
             <Icon name={link.icon} size={14} />
@@ -116,7 +116,7 @@ export default function Sidebar() {
 
         <a
           href="#launcher"
-          className="relative mx-2.5 mb-px flex w-[calc(100%-20px)] items-center gap-2 rounded-[var(--radius)] px-2.5 py-2 text-[13px] text-[var(--text-secondary)] transition hover:bg-[var(--surface)] hover:text-[var(--text)]"
+          className="relative mx-2.5 mb-1 flex w-[calc(100%-20px)] items-center gap-2.5 rounded-[var(--radius)] px-3 py-2.5 text-[13px] text-[var(--text-secondary)] transition hover:bg-[var(--surface)] hover:text-[var(--text)]"
           onClick={() => setOpen(false)}
         >
           <span
@@ -127,7 +127,7 @@ export default function Sidebar() {
         </a>
         <a
           href="#account-manager"
-          className="relative mx-2.5 mb-px flex w-[calc(100%-20px)] items-center gap-2 rounded-[var(--radius)] px-2.5 py-2 text-[13px] text-[var(--text-secondary)] transition hover:bg-[var(--surface)] hover:text-[var(--text)]"
+          className="relative mx-2.5 mb-1 flex w-[calc(100%-20px)] items-center gap-2.5 rounded-[var(--radius)] px-3 py-2.5 text-[13px] text-[var(--text-secondary)] transition hover:bg-[var(--surface)] hover:text-[var(--text)]"
           onClick={() => setOpen(false)}
         >
           <span
