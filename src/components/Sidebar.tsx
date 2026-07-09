@@ -1,9 +1,11 @@
 "use client";
 
 import { useState } from "react";
+import { apps, type AppId } from "@/data/apps";
 
 const links = [
-  { href: "#downloads", label: "Downloads", icon: "download" },
+  { href: "#demo", label: "Demo", icon: "play" },
+  { href: "#downloads", label: "Download", icon: "download" },
   { href: "#install", label: "Installation", icon: "settings" },
   { href: "#contact", label: "Kontakt", icon: "mail" },
 ];
@@ -16,6 +18,11 @@ function Icon({ name, size = 14 }: { name: string; size?: number }) {
         <rect x="14" y="3" width="7" height="7" rx="1" />
         <rect x="3" y="14" width="7" height="7" rx="1" />
         <rect x="14" y="14" width="7" height="7" rx="1" />
+      </svg>
+    ),
+    play: (
+      <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+        <polygon points="5 3 19 12 5 21 5 3" fill="currentColor" stroke="none" />
       </svg>
     ),
     download: (
@@ -36,17 +43,16 @@ function Icon({ name, size = 14 }: { name: string; size?: number }) {
         <path d="M2 7l10 7 10-7" strokeLinecap="round" strokeLinejoin="round" />
       </svg>
     ),
-    library: (
-      <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-        <path d="M4 19.5A2.5 2.5 0 016.5 17H20" strokeLinecap="round" />
-        <path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z" />
-      </svg>
-    ),
   };
   return <>{icons[name]}</>;
 }
 
-export default function Sidebar() {
+type SidebarProps = {
+  selected: AppId;
+  onSelect: (id: AppId) => void;
+};
+
+export default function Sidebar({ selected, onSelect }: SidebarProps) {
   const [open, setOpen] = useState(false);
 
   return (
@@ -114,28 +120,30 @@ export default function Sidebar() {
           Apps
         </div>
 
-        <a
-          href="#launcher"
-          className="relative mx-2.5 mb-1 flex w-[calc(100%-20px)] items-center gap-2.5 rounded-[var(--radius)] px-3 py-2.5 text-[13px] text-[var(--text-secondary)] transition hover:bg-[var(--surface)] hover:text-[var(--text)]"
-          onClick={() => setOpen(false)}
-        >
-          <span
-            className="h-[7px] w-[7px] shrink-0 rounded-full"
-            style={{ background: "#3b82f6" }}
-          />
-          Game Launcher
-        </a>
-        <a
-          href="#account-manager"
-          className="relative mx-2.5 mb-1 flex w-[calc(100%-20px)] items-center gap-2.5 rounded-[var(--radius)] px-3 py-2.5 text-[13px] text-[var(--text-secondary)] transition hover:bg-[var(--surface)] hover:text-[var(--text)]"
-          onClick={() => setOpen(false)}
-        >
-          <span
-            className="h-[7px] w-[7px] shrink-0 rounded-full"
-            style={{ background: "#ef4444" }}
-          />
-          Account Manager
-        </a>
+        {apps.map((app) => (
+          <button
+            key={app.id}
+            type="button"
+            className={`relative mx-2.5 mb-1 flex w-[calc(100%-20px)] items-center gap-2.5 rounded-[var(--radius)] px-3 py-2.5 text-left text-[13px] transition ${
+              selected === app.id
+                ? "bg-[var(--surface)] font-medium text-[var(--text)]"
+                : "text-[var(--text-secondary)] hover:bg-[var(--surface)] hover:text-[var(--text)]"
+            }`}
+            onClick={() => {
+              onSelect(app.id);
+              setOpen(false);
+            }}
+          >
+            {selected === app.id && (
+              <span className="absolute left-0 top-1.5 bottom-1.5 w-0.5 rounded-full bg-[var(--accent)]" />
+            )}
+            <span
+              className="h-[7px] w-[7px] shrink-0 rounded-full"
+              style={{ background: app.dotColor }}
+            />
+            {app.shortName}
+          </button>
+        ))}
       </aside>
     </>
   );
