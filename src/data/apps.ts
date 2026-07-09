@@ -3,11 +3,10 @@ export const apps = [
     id: "launcher",
     name: "Universal Game Launcher",
     description:
-      "Starte alle deine Spiele von einer zentralen Bibliothek. Automatischer Scan, Favoriten, Cover-Art und Plattform-Filter inklusive.",
+      "Zentrale Spiele-Bibliothek mit automatischem Scan, Favoriten, Cover-Art und Plattform-Filter.",
     version: "0.1.0",
     tech: "Tauri · Svelte · Rust",
-    icon: "🎮",
-    accent: "violet" as const,
+    dotColor: "#3b82f6",
     features: [
       { text: "Spiele-Bibliothek mit Suche & Sortierung" },
       { text: "Steam, Epic, GOG & manuelle Spiele" },
@@ -22,16 +21,15 @@ export const apps = [
     id: "account-manager",
     name: "Valorant Account Manager",
     description:
-      "Wechsle schnell zwischen deinen Riot/Valorant-Accounts. Passwörter sicher im Windows Credential Manager gespeichert.",
+      "Schneller Wechsel zwischen Riot/Valorant-Accounts. Passwörter sicher im Windows Credential Manager.",
     version: "0.1.0",
     tech: "Tauri · React · Rust",
-    icon: "🎯",
-    accent: "red" as const,
+    dotColor: "#ef4444",
     features: [
       { text: "Mehrere Accounts verwalten & durchsuchen" },
       { text: "Sichere Passwort-Speicherung via Keyring" },
       { text: "One-Click Account-Wechsel mit Auto-Login" },
-      { text: "System-Tray & globaler Hotkey (Ctrl+Shift+V)" },
+      { text: "System-Tray & Hotkey (Ctrl+Shift+V)" },
     ],
     downloadUrl: "/downloads/valorant-account-manager-setup.exe",
     fileName: "Valorant-Account-Manager-Setup.exe",
